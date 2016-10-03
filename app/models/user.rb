@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  after_initialize :init
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,7 +25,9 @@ class User < ActiveRecord::Base
     end
   end
 
-
+  def init
+    self.role ||= 0
+  end
 
 
   validate :validate_username
@@ -32,5 +37,7 @@ class User < ActiveRecord::Base
       errors.add(:username, :invalid)
     end
   end
+
+  enum role: [:standard, :premium, :admin]
 
 end
