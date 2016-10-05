@@ -37,6 +37,7 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
 
+    authorize @wiki
     if @wiki.save
       flash[:notice] = "Wiki was updated successfully."
       redirect_to @wiki
@@ -44,6 +45,7 @@ class WikisController < ApplicationController
       flash.now[:alert] = "There was an error saving the wiki. Please try again."
       render :edit
     end
+
   end
 
   def destroy
@@ -57,6 +59,5 @@ class WikisController < ApplicationController
       render :show
     end
   end
-
 
 end
