@@ -5,6 +5,9 @@
     <div class="media-body">
       <h4 class="media-heading">
         <%= link_to wiki.title, wiki %>
+        <% if wiki.private %>
+          <span class="bg-warning">Private</span>
+        <% end %>
       </h4>
     </div>
   </div>

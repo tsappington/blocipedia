@@ -2,7 +2,9 @@
 15.times do
   Wiki.create!(
     title:  Faker::Name.title,
-    body:   Faker::Hipster.paragraph(3, true)
+    body:   Faker::Hipster.paragraph(3, true),
+    private: false,
+    user_id: 1
   )
 end
 
