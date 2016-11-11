@@ -16,3 +16,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.navList {
+  list-style: none;
+  height: 100px;
+  width: 300px;
+  overflow: scroll;
+}

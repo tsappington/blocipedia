@@ -14,7 +14,8 @@ u = User.new(
   username:              'Ted Sappington',
   email:                 'tedsappington@gmail.com',
   password:              'password',
-  password_confirmation: 'password'
+  password_confirmation: 'password',
+  role:                  'premium'
 )
 u.skip_confirmation!
 u.save!
@@ -22,10 +23,11 @@ u.save!
 
 # Standard User
 u = User.new(
-  username:     Faker::Name.name,
-  email:        Faker::Internet.email,
-  password:     Faker::Internet.password(6),
-  role:         'standard'
+  username:              'Jim Morrison',
+  email:                 'jim@morrison.com',
+  password:              'password',
+  password_confirmation: 'password',
+  role:                  'standard'
 )
 u.skip_confirmation!
 u.save!

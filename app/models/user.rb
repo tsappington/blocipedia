@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
 
   after_initialize :init
 
+  has_many :wikis
+  has_many :collaborators
+  has_many :collab_wikis, through: :collaborators, source: :wiki
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

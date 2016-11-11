@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
 
-  resources :wikis
+
+  resources :wikis do
+    post '/collab_add' => 'wikis#collab_add', as: :collab_add
+    post '/collab_remove' => 'wikis#collab_remove', as: :collab_remove
+  end
+
+# /posts/:id
+# /posts/:post_id/comments/:id
+  # => BLOCCIT
+  # resources :posts, only: [] do
+  #   resources :comments, only: [:create, :destroy]
+  #   resources :favorites, only: [:create, :destroy]
+  #   post '/up-vote' => 'votes#up_vote', as: :up_vote
+  #   post '/down-vote' => 'votes#down_vote', as: :down_vote
+  # end
+
+  # resources :wikis
   resources :charges, only: [:new, :create]
 
   devise_for :users
